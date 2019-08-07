@@ -15,4 +15,12 @@ import java.util.List;
 @RequestMapping(value = "/whiskies")
 public class WhiskyController {
 
+    @Autowired
+    WhiskyRepository whiskyRepository;
+
+    @GetMapping(value = "/whiskies/from/{year}")
+    public List<Whisky> findWhiskyByYear( @PathVariable int year) {
+        return whiskyRepository.findWhiskyByYear(year);
+    }
+
 }
