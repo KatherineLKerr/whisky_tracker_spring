@@ -13,18 +13,4 @@ import javax.transaction.Transactional;
 @Transactional
 public class DistilleryRepositoryImpl implements DistilleryRepositoryCustom {
 
-    @Autowired
-    EntityManager entityManager;
-
-    public List<Distillery> findDistilleriesThatHaveWhiskiesAged(int age) {
-        List<Distillery> result = null; // NEW
-        Session session = entityManager.unwrap(Session.class);
-        Criteria cr = session.createCriteria(Distillery.class);
-        cr.createAlias("whiskies", "whiskyAlias");
-        cr.add(Restrictions.eq("whiskyAlias.age", age));
-
-        result = cr.list();
-
-        return result;
-    }
 }

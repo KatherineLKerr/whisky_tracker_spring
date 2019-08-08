@@ -41,9 +41,9 @@ public class WhiskyTrackerApplicationTests {
 	}
 
 	@Test
-	public void findDistilleriesThatHaveWhiskiesAged() {
-		List<Distillery> found = distilleryRepository.findDistilleriesThatHaveWhiskiesAged(15);
-		assertEquals("Glendronach", found.get(0).getName());
+	public void findWhiskiesFromParticularDistilleryAged() {
+		List<Whisky> found = whiskyRepository.findWhiskiesFromParticularDistilleryAged("Glendronach", 15);
+		assertEquals("The Glendronach Revival", found.get(0).getName());
 	}
 
 }
